@@ -1,0 +1,52 @@
+package com.pooja.buttonlistactivity;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+/**
+ * Created by Pooja on 12/29/2016.
+ */
+
+public class fragment_info extends Fragment
+{
+    TextView textView;
+    ImageView iv;
+    String value="Please click on a button to see";
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        View v=inflater.inflate(R.layout.fragment_two_info,container,false);
+
+        return v;
+    }
+
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+        textView= (TextView)getActivity().findViewById(R.id.textView_info);
+        iv=(ImageView)getActivity().findViewById(R.id.android_image);
+    }
+
+
+
+    public void setTextViewinInfo(String value)
+    {
+        if(!value.equals(null)) {
+            textView.setText(value);
+        }
+    }
+
+    public void newimage(int image)
+    {
+      iv.setImageResource(image);
+    }
+}

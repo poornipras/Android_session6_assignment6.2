@@ -1,0 +1,42 @@
+package com.pooja.buttonlistactivity;
+
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity implements MyConnector{
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Fragment_Button_list fragmentButtonList=new Fragment_Button_list();
+        fragment_info info=new fragment_info();
+        FragmentManager manager=getFragmentManager();
+        FragmentTransaction transaction=manager.beginTransaction();
+        transaction.add(R.id.Frame_container_frag1,fragmentButtonList);
+        transaction.add(R.id.frame_container2,info);
+        transaction.commit();
+    }
+
+    @Override
+    public void getvalue(String s)
+    {
+        FragmentManager manager=getFragmentManager();
+        fragment_info info= (fragment_info) manager.findFragmentById(R.id.frame_container2);
+        info.setTextViewinInfo(s);
+    }
+
+    @Override
+    public void setImage(int image)
+    {        
+        FragmentManager man=getFragmentManager();
+        fragment_info fragmentInfo= (fragment_info) man.findFragmentById(R.id.frame_container2);
+        fragmentInfo.newimage(image);
+    }
+}

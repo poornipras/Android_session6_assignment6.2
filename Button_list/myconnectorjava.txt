@@ -1,0 +1,10 @@
+package com.pooja.buttonlistactivity;
+
+/**
+ * Created by Pooja on 12/29/2016.
+ */
+
+public interface MyConnector {
+    public void getvalue(String s);
+    public void setImage(int image);
+}
